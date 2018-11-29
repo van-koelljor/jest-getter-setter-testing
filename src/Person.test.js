@@ -19,20 +19,29 @@ describe("Person domain model:", () => {
   describe("get name", () => {
     let person = new Person("Bela Lugosi");
 
-    test("should return the name of the person", () => {
-      expect(person.name).toBe("Bela Lugosi");
-    });
-
-    // test('should throw error if current page is last page', () => {
-    //   pagination.currentPage = 5
-    //   const spy = jest.spyOn(pagination, 'nextPage', 'get')
-    //   expect(spy).toThrow('No further page available for last page')
-    // })
-
     test("should call the name getter", () => {
       const spy = jest.spyOn(person, "name", "get");
       const name = person.name;
       expect(spy).toHaveBeenCalled();
     });
+
+    test("should return the name of the person", () => {
+      expect(person.name).toBe("Bela Lugosi");
+    });
+  });
+
+  describe("set name", () => {
+    let person = new Person("Bela Lugosi");
+
+    test("should call the name setter", () => {
+      const spy = jest.spyOn(person, "name", "set");
+      person.name = "Caroll Borland";
+      expect(spy).toHaveBeenCalled();
+    });
+
+    test('should set person._name to the passed argument \'Lon Chaney junior\'', () => {
+      person.name = 'Lon Chaney'
+      expect(person._name).toBe('Lon Chaney')
+    })
   });
 });
