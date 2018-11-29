@@ -43,5 +43,11 @@ describe("Person domain model:", () => {
       person.name = 'Lon Chaney'
       expect(person._name).toBe('Lon Chaney')
     })
+
+    test('should throw error if passed argument \'name\' isn\'t of type String', () => {
+      const spy = jest.spyOn(person, "name", "set");
+      person.name = 1;
+      expect(spy).toThrow('Argument \'newName\' must be of type String')
+    })
   });
 });

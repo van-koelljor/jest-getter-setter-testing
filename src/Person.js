@@ -1,7 +1,7 @@
 export default class Person {
   constructor(name) {
     if (typeof name !== "string") {
-      throw new Error("Argument 'name' must be of type String");
+      throw new TypeError("Argument 'name' must be of type String");
     }
     this._name = name;
   }
@@ -11,6 +11,9 @@ export default class Person {
   }
 
   set name(newName) {
-    this._name = newName.toUpperCase();
+    if (typeof newName !== "string") {
+      throw new TypeError("Argument 'newName' must be of type String");
+    }
+    this._name = newName;
   }
 }
