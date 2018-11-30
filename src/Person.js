@@ -10,10 +10,10 @@ export default class Person {
     return this._name;
   }
 
-  set name(newName) {
-    if (typeof newName !== "string") {
-      throw new TypeError("Argument 'newName' must be of type String");
+  set name(name) {
+    if (typeof name !== "string") {
+      throw new TypeError("Argument 'name' must be of type String");
     }
-    this._name = newName;
+    this._name = name;
   }
 }
