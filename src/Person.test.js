@@ -12,7 +12,7 @@ describe("Person domain model:", () => {
     test("should throw an error if a non numeric value is passed", () => {
       expect(() => {
         new Person(1);
-      }).toThrow("Argument 'name' must be of type String");
+      }).toThrow(TypeError);
     });
   });
 
@@ -47,7 +47,7 @@ describe("Person domain model:", () => {
     test('should throw error if passed argument \'name\' isn\'t of type String', () => {
       const spy = jest.spyOn(person, "name", "set");
       person.name = 1;
-      expect(spy).toThrow('Argument \'newName\' must be of type String')
+      expect(spy).toThrow(TypeError)
     })
   });
 });
